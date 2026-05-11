@@ -1,0 +1,311 @@
+.about {
+  background: var(--color-lightest);
+}
+
+/* About grid */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 800;
+  color: var(--color-darkest);
+  line-height: 1.2;
+  margin-top: 8px;
+}
+
+.body {
+  font-size: 15.5px;
+  color: var(--color-gray-600);
+  line-height: 1.75;
+}
+
+.values {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.valueChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.valueDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+/* Visual card */
+.aboutVisual {
+  position: relative;
+  padding-bottom: 48px;
+}
+
+.visualCard {
+  position: relative;
+  background: linear-gradient(145deg, #064E3B 0%, #11270B 100%);
+  border-radius: 24px;
+  padding: 32px 32px 36px;
+  overflow: visible;
+  box-shadow: var(--shadow-lg);
+}
+
+.visualTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--color-darkest);
+  flex-shrink: 0;
+}
+
+.avatarName {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.avatarRole {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2px;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+}
+
+.skillBar {
+  height: 7px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skillFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #34D399, #A7F3D0);
+  animation: skillGrow 1.2s ease forwards;
+  transform-origin: left;
+}
+
+@keyframes skillGrow {
+  from { width: 0% !important; }
+}
+
+/* Decorations */
+.cardDeco1 {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.cardDeco2 {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(52, 211, 153, 0.05);
+}
+
+/* Floating badge */
+.floatingBadge {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 20px;
+  box-shadow: 0 10px 30px rgba(6, 78, 59, 0.18);
+  border: 1px solid var(--color-gray-100);
+  width: 88%;
+  justify-content: center;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.badgeTitle {
+  font-size: 11px;
+  color: var(--color-gray-600);
+  font-weight: 500;
+}
+
+.badgeVal {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-darkest);
+}
+
+/* Why us */
+.whySection {
+  padding-top: 80px;
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.whyHeader {
+  margin-bottom: 48px;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.whyCard {
+  background: #ffffff;
+  border: 1px solid var(--color-gray-100);
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+}
+
+.whyCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-light);
+}
+
+.whyIcon {
+  font-size: 32px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.whyTitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-darkest);
+  margin-bottom: 8px;
+}
+
+.whyDesc {
+  font-size: 14px;
+  color: var(--color-gray-600);
+  line-height: 1.65;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 64px;
+  }
+
+  .aboutContent {
+    text-align: center;
+    align-items: center;
+  }
+
+  .values {
+    justify-content: center;
+  }
+
+  .whyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .aboutGrid {
+    margin-bottom: 48px;
+  }
+
+  .whySection {
+    padding-top: 56px;
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .floatingBadge {
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    margin: 0;
+  }
+
+  .aboutVisual {
+    display: flex;
+    flex-direction: column;
+  }
+}
