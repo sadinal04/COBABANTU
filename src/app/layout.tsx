@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "COBABANTU.COM — Smart Digital & AI Solutions",
+  title: "COBABANTU — Smart Digital Solutions",
   description:
     "COBABANTU.COM menyediakan jasa pembuatan website, aplikasi mobile, dashboard interaktif, AI & otomatisasi, dan analisis data untuk bisnis Anda.",
   keywords: [
@@ -16,8 +16,12 @@ export const metadata: Metadata = {
     "toko online",
   ],
   authors: [{ name: "COBABANTU" }],
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
-    title: "COBABANTU.COM — Smart Digital & AI Solutions",
+    title: "COBABANTU — Smart Digital Solutions",
     description:
       "Jasa pembuatan website, dashboard, AI & analisis data untuk bisnis Anda.",
     url: "https://cobabantu.com",

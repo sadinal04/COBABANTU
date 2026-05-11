@@ -32,7 +32,7 @@ export default function HeroSection() {
             <Zap size={14} /> Smart Digital &amp; AI Solutions
           </div>
           <h1 className={`${styles.heading} animate-fadeInUp delay-2`}>
-            Wujudkan Bisnis Digital <span className={styles.headingAccent}>Impian Anda</span> Bersama Kami
+            Wujudkan kebutuhan Digital <span className={styles.headingAccent}>Impian Anda</span> Bersama Kami
           </h1>
           <p className={`${styles.subheading} animate-fadeInUp delay-3`}>
             COBABANTU hadir dengan solusi teknologi lengkap — dari website, dashboard interaktif, AI &amp; otomatisasi, hingga analisis data.

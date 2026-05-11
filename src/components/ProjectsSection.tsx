@@ -1,42 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { projects } from "@/lib/data";
 import styles from "./ProjectsSection.module.css";
-import { LayoutDashboard, ShoppingCart, Bot, LineChart, Settings, Rocket } from "lucide-react";
-
-// Color mapping for project placeholders
-const projectVisuals = [
-  {
-    icon: <LayoutDashboard size={48} />,
-    bg: "linear-gradient(135deg, #064E3B 0%, #065F46 100%)",
-    pattern: "dashboard",
-  },
-  {
-    icon: <ShoppingCart size={48} />,
-    bg: "linear-gradient(135deg, #065F46 0%, #047857 100%)",
-    pattern: "store",
-  },
-  {
-    icon: <Bot size={48} />,
-    bg: "linear-gradient(135deg, #047857 0%, #059669 100%)",
-    pattern: "ai",
-  },
-  {
-    icon: <LineChart size={48} />,
-    bg: "linear-gradient(135deg, #059669 0%, #10B981 100%)",
-    pattern: "analytics",
-  },
-  {
-    icon: <Settings size={48} />,
-    bg: "linear-gradient(135deg, #10B981 0%, #34D399 100%)",
-    pattern: "system",
-  },
-  {
-    icon: <Rocket size={48} />,
-    bg: "linear-gradient(135deg, #064E3B 0%, #10B981 100%)",
-    pattern: "landing",
-  },
-];
+import { ExternalLink } from "lucide-react";
 
 export default function ProjectsSection() {
   return (
@@ -44,116 +11,79 @@ export default function ProjectsSection() {
       <div className="container">
         <div className="section-header">
           <div className="section-label">
-            <span>🏆</span> Proyek Terbaik
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Proyek Terbaik
           </div>
           <h2 className="section-title">
             Karya yang Kami{" "}
             <span className="text-gradient">Banggakan</span>
           </h2>
           <p className="section-subtitle">
-            Berikut beberapa proyek pilihan yang telah kami selesaikan dengan
-            kualitas terbaik dan kepuasan klien.
+            Berikut beberapa proyek pilihan yang telah kami selesaikan dengan kualitas terbaik dan kepuasan klien.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {projects.map((project, index) => {
-            const visual = projectVisuals[index % projectVisuals.length];
-            return (
-              <div
-                key={project.id}
-                className={styles.card}
-                id={`project-card-${project.id}`}
-              >
-                {/* Visual area */}
-                <div
-                  className={styles.visual}
-                  style={{ background: visual.bg }}
-                >
-                  {/* Decorative pattern */}
-                  <div className={styles.visualPattern}>
-                    {visual.pattern === "dashboard" && (
-                      <div className={styles.dashPattern}>
-                        {[70, 85, 55, 90, 65].map((h, i) => (
-                          <div key={i} className={styles.dashBar} style={{ height: `${h}%` }} />
-                        ))}
-                      </div>
-                    )}
-                    {visual.pattern === "store" && (
-                      <div className={styles.storePattern}>
-                        {[0,1,2,3,4,5].map(i => (
-                          <div key={i} className={styles.storeCard} />
-                        ))}
-                      </div>
-                    )}
-                    {visual.pattern === "ai" && (
-                      <div className={styles.aiPattern}>
-                        {[0,1,2,3,4,5,6,7,8].map(i => (
-                          <div key={i} className={styles.aiNode} />
-                        ))}
-                      </div>
-                    )}
-                    {visual.pattern === "analytics" && (
-                      <div className={styles.analyticsPattern}>
-                        <div className={styles.analyticsPie} />
-                        <div className={styles.analyticsBars}>
-                          {[60, 80, 45, 90].map((h, i) => (
-                            <div key={i} className={styles.analyticsBar} style={{ height: `${h}%` }} />
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {visual.pattern === "system" && (
-                      <div className={styles.systemPattern}>
-                        {[0,1,2,3,4,5].map(i => (
-                          <div key={i} className={styles.systemBlock} />
-                        ))}
-                      </div>
-                    )}
-                    {visual.pattern === "landing" && (
-                      <div className={styles.landingPattern}>
-                        <div className={styles.landingRect} />
-                        <div className={styles.landingLines}>
-                          {[0,1,2].map(i => <div key={i} className={styles.landingLine} />)}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  <span className={styles.bigIcon}>{visual.icon}</span>
-
-                  {/* Hover overlay */}
-                  <div className={styles.overlay}>
+          {projects.map((project) => (
+            <div key={project.id} className={styles.card} id={`project-card-${project.id}`}>
+              {/* Image — Natural aspect ratio */}
+              <div className={styles.imgWrap}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className={styles.img}
+                  style={{ objectFit: "contain", objectPosition: "center" }}
+                />
+                {/* Overlay on hover */}
+                <div className={styles.overlay}>
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.viewBtn}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <ExternalLink size={15} />
+                      Kunjungi Website
+                    </a>
+                  ) : (
                     <span className={styles.viewBtn}>Lihat Detail →</span>
-                  </div>
+                  )}
                 </div>
 
-                {/* Card info */}
-                <div className={styles.info}>
-                  <span className={styles.category}>{project.category}</span>
-                  <h3 className={styles.title}>{project.title}</h3>
-                  <p className={styles.desc}>{project.description}</p>
+                {/* Category badge */}
+                <span className={styles.catBadge}>{project.category}</span>
+              </div>
+
+              {/* Card info */}
+              <div className={styles.info}>
+                <h3 className={styles.title}>{project.title}</h3>
+                <p className={styles.desc}>{project.description}</p>
+                {/* Tags */}
+                <div className={styles.tags}>
+                  {project.tags?.map((tag, i) => (
+                    <span key={i} className={styles.tag}>{tag}</span>
+                  ))}
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
         {/* CTA */}
         <div className={styles.cta}>
           <p>Tertarik dengan proyek serupa?</p>
           <a
-            href={`https://wa.me/6285337342258?text=${encodeURIComponent(
-              "Halo COBABANTU, saya tertarik untuk memulai proyek digital. Bisa kita diskusikan?"
-            )}`}
+            href={`https://wa.me/6285337342258?text=${encodeURIComponent("Halo COBABANTU, saya tertarik untuk memulai proyek digital. Bisa kita diskusikan?")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
             id="projects-wa-btn"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
             Diskusikan Proyek Anda
           </a>
         </div>

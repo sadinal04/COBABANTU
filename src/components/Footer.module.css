@@ -185,14 +185,29 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 24px;
 }
 
 .copyright,
 .rights {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.3);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.locationIconBottom {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.locationText {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Responsive */
@@ -222,13 +237,53 @@
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 36px;
-    padding-bottom: 40px;
+    gap: 28px;
+    padding-bottom: 32px;
   }
 
   .brand {
     flex-direction: column;
     gap: 14px;
+  }
+
+  .column {
+    gap: 12px;
+  }
+
+  .colTitle {
+    font-size: 13px;
+  }
+
+  .colList {
+    gap: 8px;
+  }
+
+  .colLink {
+    font-size: 12px;
+  }
+
+  .contactLabel {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .contactValue,
+  .contactValueHover {
+    font-size: 12px;
+  }
+
+  .contactItem {
+    gap: 4px;
+  }
+
+  .socialRow {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .socialBtn {
+    width: 36px;
+    height: 36px;
   }
 
   .waBtn {
@@ -238,6 +293,21 @@
 
   .bottom {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .copyright,
+  .location {
+    font-size: 12px;
+  }
+
+  .copyright {
+    line-height: 1.5;
+  }
+
+  .locationText {
+    font-size: 12px;
   }
 }
