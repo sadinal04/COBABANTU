@@ -1,0 +1,302 @@
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(52, 211, 153, 0.16), transparent 35%),
+    radial-gradient(circle at top right, rgba(110, 231, 183, 0.12), transparent 30%),
+    linear-gradient(180deg, #ecfdf5 0%, #d1fae5 46%, #f8fffb 100%);
+  padding: 40px 24px 56px;
+  color: #11270b;
+}
+
+.header {
+  max-width: 1140px;
+  margin: 0 auto 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+}
+
+.pageLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 8px;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.pageNote {
+  max-width: 420px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(17, 39, 11, 0.72);
+  margin: 0;
+}
+
+.deck {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.poster {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(52, 211, 153, 0.34), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(6, 78, 59, 0.22), transparent 30%),
+    linear-gradient(160deg, #11270b 0%, #064e3b 52%, #0f5132 100%);
+  box-shadow: 0 24px 60px rgba(6, 78, 59, 0.2);
+}
+
+.posterGlow {
+  position: absolute;
+  inset: auto -20% -15% auto;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(110, 231, 183, 0.28), transparent 70%);
+  filter: blur(18px);
+}
+
+.posterInner {
+  position: relative;
+  height: 100%;
+  padding: 30px 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandLogo {
+  border-radius: 999px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px;
+}
+
+.badge,
+.slideNumber {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.badge {
+  color: #ecfdf5;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.slideNumber {
+  color: #d1fae5;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.heroBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.iconWrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ecfdf5;
+  background: linear-gradient(180deg, rgba(52, 211, 153, 0.22), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.kicker {
+  margin: 0;
+  color: #6ee7b7;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  color: rgba(236, 253, 245, 0.78);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 29ch;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.chip {
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ecfdf5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 13px;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #f0fdf4;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.listDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  margin-top: 7px;
+  background: linear-gradient(180deg, #6ee7b7, #34d399);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.45);
+  flex-shrink: 0;
+}
+
+.footerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 18px;
+}
+
+.footerCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footerLabel {
+  margin: 0 0 4px;
+  color: rgba(236, 253, 245, 0.68);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.footerText {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.footerMark {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #d1fae5;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footerLogo {
+  border-radius: 999px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2px;
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pageTitle {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 28px 16px 48px;
+  }
+
+  .deck {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .poster {
+    border-radius: 24px;
+  }
+
+  .posterInner {
+    padding: 22px 20px 20px;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .subtitle {
+    max-width: none;
+  }
+
+  .footerRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

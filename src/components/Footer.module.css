@@ -232,30 +232,52 @@
 
 @media (max-width: 640px) {
   .footer {
-    padding: 56px 0 0;
+    padding: 48px 0 0;
   }
 
   .grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding-bottom: 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 16px;
+    padding-bottom: 28px;
   }
 
   .brand {
+    grid-column: 1 / -1;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
+  }
+
+  .logoText {
+    font-size: 18px;
+  }
+
+  .tagline {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    margin-top: -2px;
+  }
+
+  .desc {
+    font-size: 13px;
+    line-height: 1.6;
   }
 
   .column {
     gap: 12px;
   }
 
+  .column:last-child {
+    align-items: flex-end;
+    text-align: right;
+  }
+
   .colTitle {
     font-size: 13px;
+    margin-bottom: 0;
   }
 
   .colList {
-    gap: 8px;
+    gap: 7px;
   }
 
   .colLink {
@@ -276,9 +298,22 @@
     gap: 4px;
   }
 
+  .column:last-child .contactList {
+    align-items: flex-end;
+  }
+
+  .column:last-child .contactItem {
+    justify-content: flex-end;
+  }
+
   .socialRow {
     gap: 8px;
     margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .column:last-child .socialRow {
+    justify-content: flex-end;
   }
 
   .socialBtn {
@@ -289,13 +324,18 @@
   .waBtn {
     align-self: stretch;
     justify-content: center;
+    width: 100%;
+    padding: 11px 18px;
   }
 
   .bottom {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
     gap: 12px;
-    padding: 16px 0;
+    width: 100%;
+    padding: 14px 0 18px;
   }
 
   .copyright,
@@ -305,9 +345,16 @@
 
   .copyright {
     line-height: 1.5;
+    flex: 1 1 220px;
+    min-width: 0;
   }
 
   .locationText {
     font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .location {
+    flex-shrink: 0;
   }
 }
